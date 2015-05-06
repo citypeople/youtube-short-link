@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>YuoTube link Jquery </title>
+  
+  <script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+  
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  
+  <style type='text/css'>
+    
+  </style>
+  
+
+
+<script type="text/javascript">
+
+function obr(d)
+    {
+        var r = 0;
+        var val = $("#"+d).val();
+        var id = val.match(/v=([^&]+)/);
+        if(!id)
+            {
+                var id = val.match(/be\/([^&]+)/);
+            }
+        if(!id)
+            {
+                var id = val.match(/embed\/([^&]+)/);	 
+            }
+        if(!id)
+            {
+                $("#"+d).css("color", "#F00");
+                var r = 1;
+            }
+        if(r == 0)
+            {
+                $("#"+d).val(id[1]);
+                $("#"+d).css("color", "#000");
+            }
+    }
+
+</script>
+
+
+</head>
+  
+<body>
+<h1>YuoTube</h1>
+  <input type=text id="yus" onblur="obr('yus')">
+<p>Скрипт для получения уникального ID из ссылки youtube.com</p>
+    <p><b>Пример обрабатываемых ссылок:</b></p>
+    <p>http://www.youtube.com/watch?v=5r_MNOJ5qAw&feature=b-mv</p>
+    <p>http://youtu.be/5r_MNOJ5qAw</p>
+    <p>http://youtube.com/embed/5r_MNOJ5qAw</p>
+  
+</body>
+
+
+</html>
+
